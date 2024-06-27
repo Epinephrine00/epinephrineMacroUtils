@@ -120,15 +120,25 @@ class ADBDevice:
 
 
         return messages
+    
+
+    def getLayoutXML(self, deviceSelector = 0):
+        self.devices[deviceSelector%len(self.devices)].shell('uiautomator dump /sdcard/ui_dump.xml')
+        self.devices[deviceSelector%len(self.devices)].pull('/sdcard/ui_dump.xml', 'ui_dump.xml')
+
 
 
 
 if __name__ == "__main__":
     ADBbot = ADBDevice()
     ADBbot.work_start()
-    ADBbot.device_screen_capture()
-    print(ADBbot.deviceInfo())
-    print(ADBbot.getRecentMesseges())
+    #ADBbot.device_screen_capture()
+    #print(ADBbot.deviceInfo())
+    #print(ADBbot.getRecentMesseges())
+    import time
+    a = time.time()
+    ADBbot.getLayoutXML()
+    print(time.time()-a)
     exit()
 
     
