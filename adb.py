@@ -126,6 +126,12 @@ class ADBDevice:
         self.devices[deviceSelector%len(self.devices)].shell('uiautomator dump /sdcard/ui_dump.xml')
         self.devices[deviceSelector%len(self.devices)].pull('/sdcard/ui_dump.xml', 'ui_dump.xml')
 
+    def isInstalled(self, packageName:str, deviceSelector=0) -> bool:
+        if packageName in self.devices[deviceSelector%len(self.devices)].shell("pm list packages"):
+            return True
+        else:
+            return False
+
 
 
 
