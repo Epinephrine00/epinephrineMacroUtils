@@ -138,13 +138,30 @@ class ADBDevice:
 if __name__ == "__main__":
     ADBbot = ADBDevice()
     ADBbot.work_start()
+    serial = ADBbot.deviceInfo()[1]
+    import uiautomator2 as ua
+    automator = ua.connect(serial)
     #ADBbot.device_screen_capture()
     #print(ADBbot.deviceInfo())
     #print(ADBbot.getRecentMesseges())
     import time
-    a = time.time()
-    ADBbot.getLayoutXML()
-    print(time.time()-a)
+    from tqdm import tqdm
+    s = []
+    for i in tqdm(range(100)):
+        a = time.time()
+        #b = automator.dump_hierarchy(True)
+        #automator.click(100, 100)
+        automator.touch.down(100, 100)
+        automator.touch.up(100, 100)
+        s.append(time.time()-a)
+    #print(b)
+    print(sum(s)/len(s))
     exit()
 
+# A30 : 0.30358870029449464
+# fold3 : 0.2740490412712097
+# fold3_comp : 0.18860352516174317
     
+# click
+# click 0.20617069482803344
+# down_up 0.14834624290466308
