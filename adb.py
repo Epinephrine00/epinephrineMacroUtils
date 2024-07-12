@@ -141,6 +141,9 @@ if __name__ == "__main__":
     serial = ADBbot.deviceInfo()[1]
     import uiautomator2 as ua
     automator = ua.connect(serial)
+    automator.settings['wait_time'] = 0.001
+    automator.settings['operation_delay'] = (0, 0)
+    automator.settings['operation_delay_methods'] = ['click', 'swipe', 'drag', 'press']
     #ADBbot.device_screen_capture()
     #print(ADBbot.deviceInfo())
     #print(ADBbot.getRecentMesseges())
@@ -165,3 +168,4 @@ if __name__ == "__main__":
 # click
 # click 0.20617069482803344
 # down_up 0.14834624290466308
+#         0.13865640878677368
