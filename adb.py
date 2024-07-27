@@ -160,7 +160,7 @@ if __name__ == "__main__":
     #print(b)
     print(sum(s)/len(s))
     exit()
-exit()
+
 # A30 : 0.30358870029449464
 # fold3 : 0.2740490412712097
 # fold3_comp : 0.18860352516174317
