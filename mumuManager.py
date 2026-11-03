@@ -12,6 +12,11 @@ MuMuManager.exe 의 ``info -v all`` 출력(JSON)을 읽어서 켜져 있는 VM �
 명령줄에서는 ``python mumuManager.py`` 로 표를 보고, ``--json`` 으로 원본을 본다.
 ``--launch 2`` 로 VM 을 켜고 부팅을 기다릴 수 있고, ``--shutdown 2`` 로 끈다.
 
+알아 둘 점:
+- ``MuMuManager.exe clone -v <idx>`` 는 원본 VM 이 꺼져 있어야 된다 (켜져 있으면 "not handle cmd").
+- 모든 VM 이 호스트 공유 폴더(Download, Pictures, Movies, Music, Screenshots)를 같이 보므로,
+  VM 마다 다른 파일을 올릴 때는 파일 이름에 serial 을 넣어야 한다.
+
 MuMuManager.exe 위치는 인자 > 환경변수 ``MUMU_MANAGER`` > 모든 드라이브의 기본 설치 경로 순으로 찾는다.
 """
 
